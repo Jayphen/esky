@@ -1,8 +1,8 @@
 .DS_Store
-/node_modules/
-/src/node_modules/@sapper/
+site/node_modules/
+site/src/node_modules/@sapper/
 yarn-error.log
-/cypress/screenshots/
-/__sapper__/
+site/cypress/screenshots/
+site/__sapper__/
 
-.vercel
+site/.vercel
