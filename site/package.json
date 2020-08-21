@@ -2,6 +2,7 @@
   "name": "esky-website",
   "description": "fresh svelte components for a hot summer day",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",

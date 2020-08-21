@@ -1,0 +1,15 @@
+{
+  "name": "esky",
+  "version": "0.0.1",
+  "description": "ice cold svelte components for a hot summer's day",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "site:dev": "cd ./site && yarn dev"
+  },
+  "keywords": [
+    "svelte"
+  ],
+  "author": "Jayphen",
+  "license": "MIT"
+}
