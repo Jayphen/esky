@@ -5,7 +5,8 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "site:dev": "cd ./site && yarn dev"
+    "site:dev": "cd ./site && yarn dev",
+    "sapper:export": "cd ./site && yarn export"
   },
   "keywords": [
     "svelte"
