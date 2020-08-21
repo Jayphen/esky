@@ -4,7 +4,7 @@
 
   let touched = false;
 
-  let direction = "up";
+  let direction = "initial";
   let prevMove = 0;
 
   function setStartPosition(e) {
@@ -47,4 +47,4 @@
   on:touchstart|passive={setStartPosition}
   on:scroll|passive={detectScrollDirection} />
 
-<slot {direction} />
+<slot {direction} position={prevMove} />
