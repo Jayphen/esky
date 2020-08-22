@@ -12,7 +12,6 @@
     if (!el) return;
 
     observerInstance = new IntersectionObserver(onChange, {
-      root: document,
       rootMargin: offset,
       threshold,
     });
