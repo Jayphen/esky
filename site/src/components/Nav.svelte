@@ -18,9 +18,23 @@
   a:hover {
     background: antiquewhite;
   }
+  .active {
+    font-weight: bold;
+    position: relative;
+  }
+  .active:before {
+    position: absolute;
+    font-size: 0.75em;
+    content: "you're here mate ▼";
+    top: 0;
+    font-weight: normal;
+    opacity: 0.5;
+  }
 </style>
 
 <nav>
-  <a href="/">Home</a>
-  <a href="/scroll-direction">scroll direction</a>
+  <a href="/" class:active={!segment}>Home</a>
+  <a href="/scroll-direction" class:active={segment === 'scroll-direction'}>
+    scroll direction
+  </a>
 </nav>
