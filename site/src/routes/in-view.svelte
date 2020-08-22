@@ -6,7 +6,7 @@
 
 <style>
   :global(body, html) {
-    height: 120%;
+    height: 150%;
   }
 
   div {
