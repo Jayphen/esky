@@ -11,6 +11,14 @@
     text-align: center;
     margin: 2em auto;
   }
+  @media (max-width: 650px) {
+    nav {
+      grid-auto-flow: row;
+    }
+    a {
+      padding: 1em;
+    }
+  }
   a {
     display: block;
     padding: 2em;
@@ -27,6 +35,7 @@
     font-size: 0.75em;
     content: "you're here mate ▼";
     top: 0;
+    left: 0;
     font-weight: normal;
     opacity: 0.5;
   }
