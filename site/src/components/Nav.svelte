@@ -47,4 +47,5 @@
     scroll direction
   </a>
   <a href="/in-view" class:active={segment === 'in-view'}>in view</a>
+  <a href="/tabs" class:active={segment === 'tabs'}>tabs</a>
 </nav>
