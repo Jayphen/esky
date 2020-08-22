@@ -13,7 +13,7 @@
     prevMove = e.touches[0].clientY;
   }
 
-  function detectScrollDirection() {
+  function detectScrollDirection(e) {
     if (touchOnly && !touched) return;
 
     let thisMove = window.scrollY;

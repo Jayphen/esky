@@ -1,5 +1,5 @@
 <script>
-  import ScrollDirection from "../../../packages/scroll-direction/index.svelte";
+  import ScrollDirection from "@esky/scroll-direction";
 
   function gohome() {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });

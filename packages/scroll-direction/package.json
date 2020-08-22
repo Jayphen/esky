@@ -1,0 +1,19 @@
+{
+  "name": "@esky/scroll-direction",
+  "version": "0.0.1",
+  "description": "Svelte scroll direction detection",
+  "author": "Jayphen <software@jayphen.com>",
+  "license": "MIT",
+  "svelte": "index.svelte",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayphen/esky.git",
+    "directory": "packages/scroll-direction"
+  },
+  "main": "index.js",
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "svelte": "^3.17.3"
+  }
+}

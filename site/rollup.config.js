@@ -6,6 +6,8 @@ import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
+import alias from '@rollup/plugin-alias'
+import path from 'path'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -17,11 +19,20 @@ const onwarn = (warning, onwarn) =>
     /[/\\]@sapper[/\\]/.test(warning.message)) ||
   onwarn(warning);
 
+const aliases = () => ({
+  resolve: ['.svelte', '.js'],
+  entries:[
+    {find:/^@esky\/([^\/]+)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', 'index.js')},
+    {find:/^@esky\/([^\/]+)\/(.*)$/, replacement: path.resolve(__dirname, '..', 'packages', '$1', '$2')}
+  ]
+});
+
 export default {
   client: {
     input: config.client.input(),
     output: config.client.output(),
     plugins: [
+      alias(aliases()),
       replace({
         "process.browser": true,
         "process.env.NODE_ENV": JSON.stringify(mode),
@@ -75,6 +86,7 @@ export default {
     input: config.server.input(),
     output: config.server.output(),
     plugins: [
+      alias(aliases()),
       replace({
         "process.browser": false,
         "process.env.NODE_ENV": JSON.stringify(mode),

@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "ice cold svelte components for a hot summer's day",
   "private": true,
-  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jayphen/esky.git"
+  },
+  "files": [],
   "scripts": {
     "site:dev": "cd ./site && yarn dev",
     "sapper:export": "cd ./site && yarn export"
@@ -11,6 +15,14 @@
   "keywords": [
     "svelte"
   ],
-  "author": "Jayphen",
-  "license": "MIT"
+  "workspaces": [
+    "packages/*",
+    "site"
+  ],
+  "author": "Jayphen <software@jayphen.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^3.22.1",
+    "svelte": "^3.24.1"
+  }
 }
