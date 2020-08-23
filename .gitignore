@@ -5,4 +5,4 @@ cypress/screenshots/
 __sapper__/
 .sessions
 .env
-
+dist
