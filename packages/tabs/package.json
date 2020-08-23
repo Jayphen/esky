@@ -1,17 +1,17 @@
 {
   "name": "@esky-ui/tabs",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.1",
   "description": "Svelte tab components",
   "author": "Jayphen <software@jayphen.com>",
   "license": "MIT",
   "svelte": "index.js",
   "module": "dist/index.mjs",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jayphen/esky.git",
     "directory": "packages/tabs"
   },
-  "main": "index.js",
   "dependencies": {},
   "peerDependencies": {
     "svelte": "^3.17.3"

@@ -8,6 +8,11 @@ export default globby.sync('packages/**/index.js').map(inputFile => ({
     file: inputFile.replace('index.js', 'dist/index.mjs'),
     format: 'es'
   },
+  output: {
+    file: inputFile.replace('index.js', 'dist/index.js'),
+    format: 'umd',
+    name: 'eskyTabs'
+  },
   plugins: [
     svelte(),
     resolve()
