@@ -9,6 +9,9 @@
   registerTab(tab);
 </script>
 
-<button on:click={() => select(tab)} class:esky-active-tab={$activeTab === tab}>
+<button
+  on:click={() => select(tab)}
+  class="esky-tab"
+  class:esky-active-tab={$activeTab === tab}>
   <slot />
 </button>
