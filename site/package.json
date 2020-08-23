@@ -3,11 +3,6 @@
   "author": "Jayphen <software@jayphen.com>",
   "description": "fresh svelte components for a hot summer day",
   "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jayphen/esky.git",
-    "directory": "packages/site"
-  },
   "private": true,
   "scripts": {
     "dev": "sapper dev",
