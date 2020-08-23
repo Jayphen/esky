@@ -1,6 +1,6 @@
 {
   "name": "@esky/in-view",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.0",
   "description": "Svelte intersection observer",
   "author": "Jayphen <software@jayphen.com>",
   "license": "MIT",
@@ -11,8 +11,6 @@
     "directory": "packages/in-view"
   },
   "main": "index.js",
-  "dependencies": {
-  },
   "peerDependencies": {
     "svelte": "^3.17.3"
   }
