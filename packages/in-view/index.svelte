@@ -1,15 +1,17 @@
 <script>
-  import { onDestroy } from "svelte";
+  import { onDestroy, onMount } from "svelte";
 
   export let threshold = 0,
     offset = "0px",
     element;
 
+  let unsupported;
+
   let inView = false,
     observerInstance;
 
   function observe(el) {
-    if (!el) return;
+    if (!el || unsupported) return;
 
     observerInstance = new IntersectionObserver(onChange, {
       rootMargin: offset,
@@ -22,6 +24,14 @@
   function onChange(changes) {
     inView = changes[0].isIntersecting;
   }
+
+  onMount(() => {
+    unsupported =
+      !"IntersectionObserver" in window &&
+      !"IntersectionObserverEntry" in window &&
+      !"intersectionRatio" in window.IntersectionObserverEntry.prototype;
+    if (unsupported) inView = true;
+  });
 
   onDestroy(() => {
     element && observerInstance.unobserve(element);
