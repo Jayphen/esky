@@ -1,9 +1,9 @@
 <script>
   import { getContext } from "svelte";
 
-  export let initial, renderless;
+  export let renderless = false;
 
-  const tab = { initial };
+  const tab = { renderless };
   const { registerTab, activeTab, select } = getContext("tabs");
 
   registerTab(tab);
