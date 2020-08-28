@@ -1,6 +1,8 @@
 <script>
   import { Tabs, Tab } from "@esky/tabs";
   import Panel from "../../../packages/tabs/Panel.svelte";
+
+  let setActiveIndex;
 </script>
 
 <style>
@@ -39,12 +41,7 @@
 
 <h1>Tabs</h1>
 
-<Tabs>
-  <div class="tabs">
-    <Tab initial>hey</Tab>
-    <Tab>hi</Tab>
-    <Tab>hello</Tab>
-  </div>
+<Tabs bind:setActiveIndex>
   <Panel>
     <div class="panel">One</div>
   </Panel>
@@ -54,4 +51,15 @@
   <Panel>
     <div class="panel">Three</div>
   </Panel>
+  <div class="tabs">
+    <Tab>hey</Tab>
+    <Tab>hi I'm in a button already</Tab>
+    <Tab renderless let:select let:active let:a11y>
+      <button on:click={select} {...a11y.button}>
+        {active} -- this tab is renderless so I have to add a button here myself
+      </button>
+    </Tab>
+  </div>
 </Tabs>
+
+<button on:click={() => setActiveIndex(2)}>Set index to 2 from outside!</button>

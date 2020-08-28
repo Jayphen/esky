@@ -1,5 +1,5 @@
 <script>
-  import { setContext, onDestroy } from "svelte";
+  import { setContext, onDestroy, onMount } from "svelte";
   import { writable, derived } from "svelte/store";
 
   let tabs = [],
@@ -8,18 +8,22 @@
   const activeTab = writable(null);
   const activePanel = writable(null);
 
+  export let setActiveIndex = function setActiveIndex(index) {
+    activeTab.set(tabs[index]);
+    activePanel.set(panels[index]);
+  };
+  export let initialIndex = 0;
+
   setContext("tabs", {
     registerTab: (tab) => {
       tabs.push(tab);
-      if (tab.initial) {
+      if (!$activeTab && tabs.indexOf(tab) === initialIndex) {
         activeTab.set(tab);
       }
     },
     registerPanel: (panel) => {
       panels.push(panel);
-      const index = panels.indexOf(panel);
-      const tabIndex = tabs.indexOf($activeTab);
-      if (!$activePanel && index === tabIndex) {
+      if (!$activePanel && panels.indexOf(panel) === initialIndex) {
         activePanel.set(panel);
       }
     },
@@ -32,4 +36,4 @@
   });
 </script>
 
-<slot />
+<slot {setActiveIndex} />

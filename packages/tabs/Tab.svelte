@@ -1,17 +1,27 @@
 <script>
   import { getContext } from "svelte";
 
-  export let initial;
+  export let initial, renderless;
 
   const tab = { initial };
   const { registerTab, activeTab, select } = getContext("tabs");
 
   registerTab(tab);
+
+  let a11y = {
+    button: {
+      "data-test": "test",
+    },
+  };
 </script>
 
-<button
-  on:click={() => select(tab)}
-  class="esky-tab"
-  class:esky-active-tab={$activeTab === tab}>
-  <slot />
-</button>
+{#if !renderless}
+  <button
+    on:click={() => select(tab)}
+    class="esky-tab"
+    class:esky-active-tab={$activeTab === tab}>
+    <slot />
+  </button>
+{:else}
+  <slot select={() => select(tab)} active={$activeTab === tab} {a11y} />
+{/if}
