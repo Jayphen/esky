@@ -1,6 +1,9 @@
 <script>
   import { setContext, onDestroy, onMount } from "svelte";
   import { writable, derived } from "svelte/store";
+  import { genId } from "./genId";
+
+  const id = `esky-tabs-${genId()}`;
 
   let tabs = [],
     panels = [];
@@ -32,6 +35,9 @@
     },
     activeTab,
     activePanel,
+    id,
+    tabs,
+    panels,
   });
 
   export let index = 0;

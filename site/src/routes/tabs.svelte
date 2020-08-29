@@ -9,6 +9,10 @@
   .tabs {
     display: flex;
   }
+  hr {
+    margin: 2em 0;
+    visibility: hidden;
+  }
   :global(.esky-tab) {
     background: hsl(0, 0%, 90%);
     border: 0;
@@ -59,6 +63,29 @@
   </Panel>
   <Panel>
     <div class="panel">Three</div>
+  </Panel>
+</Tabs>
+
+<hr />
+
+<Tabs bind:index>
+  <div class="tabs">
+    <Tab>hey</Tab>
+    <Tab>hi I'm in a button already</Tab>
+    <Tab renderless let:select let:active let:a11y>
+      <button on:click={select} {...a11y.button}>
+        {active} -- this tab is renderless so I have to add a button here myself
+      </button>
+    </Tab>
+  </div>
+  <Panel let:a11y>
+    <div class="panel" {...a11y.panel}>One</div>
+  </Panel>
+  <Panel let:a11y>
+    <div class="panel" {...a11y.panel}>Two</div>
+  </Panel>
+  <Panel let:a11y>
+    <div class="panel" {...a11y.panel}>Three</div>
   </Panel>
 </Tabs>
 
