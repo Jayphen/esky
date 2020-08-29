@@ -8,32 +8,35 @@
   const activeTab = writable(null);
   const activePanel = writable(null);
 
-  export let setActiveIndex = function setActiveIndex(index) {
+  function setActiveIndex(i) {
+    index = i;
     activeTab.set(tabs[index]);
     activePanel.set(panels[index]);
-  };
-  export let initialIndex = 0;
+  }
 
   setContext("tabs", {
     registerTab: (tab) => {
       tabs.push(tab);
-      if (!$activeTab && tabs.indexOf(tab) === initialIndex) {
+      if (!$activeTab && tabs.indexOf(tab) === index) {
         activeTab.set(tab);
       }
     },
     registerPanel: (panel) => {
       panels.push(panel);
-      if (!$activePanel && panels.indexOf(panel) === initialIndex) {
+      if (!$activePanel && panels.indexOf(panel) === index) {
         activePanel.set(panel);
       }
     },
     select: (tab) => {
-      activeTab.set(tab);
-      activePanel.set(panels[tabs.indexOf(tab)]);
+      setActiveIndex(tabs.indexOf(tab));
     },
     activeTab,
     activePanel,
   });
+
+  export let index = 0;
+
+  $: setActiveIndex(index);
 </script>
 
-<slot {setActiveIndex} />
+<slot {index} />

@@ -2,7 +2,7 @@
   import { Tabs, Tab } from "@esky/tabs";
   import Panel from "../../../packages/tabs/Panel.svelte";
 
-  let setActiveIndex;
+  let index = 1;
 </script>
 
 <style>
@@ -41,16 +41,7 @@
 
 <h1>Tabs</h1>
 
-<Tabs bind:setActiveIndex>
-  <Panel>
-    <div class="panel">One</div>
-  </Panel>
-  <Panel>
-    <div class="panel">Two</div>
-  </Panel>
-  <Panel>
-    <div class="panel">Three</div>
-  </Panel>
+<Tabs bind:index>
   <div class="tabs">
     <Tab>hey</Tab>
     <Tab>hi I'm in a button already</Tab>
@@ -60,6 +51,15 @@
       </button>
     </Tab>
   </div>
+  <Panel>
+    <div class="panel">One</div>
+  </Panel>
+  <Panel>
+    <div class="panel">Two</div>
+  </Panel>
+  <Panel>
+    <div class="panel">Three</div>
+  </Panel>
 </Tabs>
 
-<button on:click={() => setActiveIndex(2)}>Set index to 2 from outside!</button>
+<button on:click={() => (index = 2)}>Set index to 2 from outside!</button>
