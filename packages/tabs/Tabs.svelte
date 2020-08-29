@@ -1,6 +1,6 @@
 <script>
-  import { setContext, onDestroy, onMount } from "svelte";
-  import { writable, derived } from "svelte/store";
+  import { setContext } from "svelte";
+  import { writable } from "svelte/store";
   import { genId } from "./genId";
 
   const id = `esky-tabs-${genId()}`;
@@ -31,7 +31,8 @@
       }
     },
     select: (tab) => {
-      setActiveIndex(tabs.indexOf(tab));
+      const index = tabs.indexOf(tab);
+      setActiveIndex(index);
     },
     activeTab,
     activePanel,
