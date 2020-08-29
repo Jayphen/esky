@@ -16,6 +16,7 @@
     panel: {
       id: `${id}-panel-${panels.indexOf(panel)}`,
       tabindex: 0,
+      role: "tabpanel",
       "aria-labelledby": `${id}-tabs-${panels.indexOf(panel)}`,
     },
   };
