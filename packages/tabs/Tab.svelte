@@ -5,7 +5,9 @@
   export let btn;
 
   const tab = { renderless };
-  const { registerTab, activeTab, select, id, tabs } = getContext("tabs");
+  const { registerTab, activeTab, select, id, tabs, modality } = getContext(
+    "tabs"
+  );
 
   let selected = false;
 
@@ -74,7 +76,11 @@
     }
   }
 
-  $: if (selected && btn) btn.focus();
+  $: console.log("modality fgrom tab", $modality);
+
+  $: if (selected && btn && $modality === "keyboard") btn.focus();
+
+  console.log($$props.$$slots);
 </script>
 
 {#if !renderless}

@@ -5,6 +5,8 @@
 
   const id = `esky-tabs-${genId()}`;
 
+  const modality = writable(null);
+
   let tabs = [],
     panels = [];
 
@@ -39,11 +41,21 @@
     id,
     tabs,
     panels,
+    modality,
   });
 
   export let index = 0;
 
   $: setActiveIndex(index);
+
+  function isValidKey(e) {
+    return !(e.metaKey || e.ctrlKey);
+  }
 </script>
 
 <slot {index} />
+
+<svelte:window
+  on:mousemove={() => modality.set('pointer')}
+  on:keydown={(e) => isValidKey(e) && modality.set('keyboard')}
+  on:blur={() => modality.set(null)} />
