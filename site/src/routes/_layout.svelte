@@ -15,9 +15,12 @@
   }
 </style>
 
+<svelte:head>
+  <title>Esky</title>
+</svelte:head>
+
 <Nav {segment} />
 
 <main>
   <slot />
 </main>
-

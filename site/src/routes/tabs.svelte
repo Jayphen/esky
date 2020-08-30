@@ -105,13 +105,13 @@
       </button>
     </Tab>
   </div>
-  <Panel let:a11y>
+  <Panel let:a11y renderless>
     <div class="panel" {...a11y.panel}>One</div>
   </Panel>
-  <Panel let:a11y>
+  <Panel let:a11y renderless>
     <div class="panel" {...a11y.panel}>Two</div>
   </Panel>
-  <Panel let:a11y>
+  <Panel let:a11y renderless>
     <div class="panel" {...a11y.panel}>Three</div>
   </Panel>
 </Tabs>
