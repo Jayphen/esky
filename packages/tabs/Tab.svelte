@@ -5,9 +5,7 @@
   export let btn;
 
   const tab = { renderless };
-  const { registerTab, activeTab, select, id, tabs, modality } = getContext(
-    "tabs"
-  );
+  const { registerTab, activeTab, select, id, tabs } = getContext("tabs");
 
   let selected = false;
 
@@ -25,6 +23,7 @@
       id: `${id}-tabs-${index}`,
       tabindex: selected ? 0 : -1,
       type: "button",
+      class: "esky-tab",
     },
   };
 
@@ -76,11 +75,9 @@
     }
   }
 
-  $: console.log("modality fgrom tab", $modality);
-
-  $: if (selected && btn && $modality === "keyboard") btn.focus();
-
-  console.log($$props.$$slots);
+  $: if (selected && btn) {
+    btn.focus();
+  }
 </script>
 
 {#if !renderless}

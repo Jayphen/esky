@@ -41,7 +41,6 @@
     id,
     tabs,
     panels,
-    modality,
   });
 
   export let index = 0;
@@ -51,11 +50,20 @@
   function isValidKey(e) {
     return !(e.metaKey || e.ctrlKey);
   }
+
+  // todo: move this out to utils library
+  $: if ($modality === "keyboard") {
+    typeof document !== "undefined" &&
+      document.body.classList.add("keyboard-user");
+  } else {
+    typeof document !== "undefined" &&
+      document.body.classList.remove("keyboard-user");
+  }
 </script>
 
 <slot {index} />
 
 <svelte:window
-  on:mousemove={() => modality.set('pointer')}
+  on:mousedown={() => modality.set('pointer')}
   on:keydown={(e) => isValidKey(e) && modality.set('keyboard')}
   on:blur={() => modality.set(null)} />

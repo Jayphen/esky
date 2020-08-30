@@ -34,7 +34,13 @@
     border-left: 0;
   }
   :global(.esky-tab:focus) {
+    outline: none;
+  }
+  :global(.keyboard-user .esky-tab:focus) {
     font-weight: bold;
+    outline: 2px solid teal;
+    position: relative;
+    z-index: 5;
   }
   :global(.esky-active-tab) {
     background: white;
@@ -111,6 +117,12 @@
 </Tabs>
 
 <p>Keyboard nav (when a tab has focus)</p>
+
+<p>
+  Note: Esky will detect whether the user is interacting with a keyboard or a
+  pointing device. If using a pointing device, buttons will not be focused when
+  clicked.
+</p>
 
 <ul>
   <li>
