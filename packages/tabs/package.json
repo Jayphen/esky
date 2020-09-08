@@ -1,6 +1,6 @@
 {
   "name": "@esky-ui/tabs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Svelte tab components",
   "author": "Jayphen <software@jayphen.com>",
   "license": "MIT",
