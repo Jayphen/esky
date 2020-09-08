@@ -48,7 +48,7 @@
   $: setActiveIndex(index);
 
   function isValidKey(e) {
-    return !(e.metaKey || e.ctrlKey);
+    return !(e.metaKey || e.ctrlKey || e.altKey);
   }
 
   // todo: move this out to utils library
