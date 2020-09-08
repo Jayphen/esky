@@ -35,6 +35,7 @@
     select: (tab) => {
       const index = tabs.indexOf(tab);
       setActiveIndex(index);
+      if (tab.btn) tab.btn.focus();
     },
     activeTab,
     activePanel,

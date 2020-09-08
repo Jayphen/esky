@@ -1,12 +1,11 @@
 <script>
   import { getContext } from "svelte";
-  import Tab from "./Tab.svelte";
 
   export let renderless = false;
   let selected = false;
 
   const panel = {};
-  const { registerPanel, activePanel, panels, id, select } = getContext("tabs");
+  const { registerPanel, activePanel, panels, id } = getContext("tabs");
 
   registerPanel(panel);
 

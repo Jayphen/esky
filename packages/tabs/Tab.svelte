@@ -75,8 +75,8 @@
     }
   }
 
-  $: if (selected && btn) {
-    btn.focus();
+  $: if (btn && !tab.btn) {
+    tab.btn = btn;
   }
 </script>
 
