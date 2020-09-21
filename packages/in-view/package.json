@@ -1,6 +1,6 @@
 {
   "name": "@esky-ui/in-view",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Svelte intersection observer",
   "author": "Jayphen <software@jayphen.com>",
   "license": "MIT",
