@@ -14,6 +14,7 @@
     observerInstance;
 
   let triggered = false;
+  let mounted = false;
 
   function observe(el) {
     if (!el || unsupported) return;
@@ -37,13 +38,14 @@
       !"IntersectionObserverEntry" in window &&
       !"intersectionRatio" in window.IntersectionObserverEntry.prototype;
     if (unsupported) inView = true;
+    mouned = true;
   });
 
   onDestroy(() => {
     element && observerInstance.unobserve(element);
   });
 
-  $: observe(element);
+  $: mounted && observe(element);
 
   $: dispatch(inView ? "entered" : "exited");
 
