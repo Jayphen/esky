@@ -38,7 +38,7 @@
       !"IntersectionObserverEntry" in window &&
       !"intersectionRatio" in window.IntersectionObserverEntry.prototype;
     if (unsupported) inView = true;
-    mouned = true;
+    mounted = true;
   });
 
   onDestroy(() => {
