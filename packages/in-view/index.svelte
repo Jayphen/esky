@@ -8,7 +8,7 @@
     element,
     once = false;
 
-  let unsupported;
+  let supported;
 
   let inView = false,
     observerInstance;
@@ -17,7 +17,7 @@
   let mounted = false;
 
   function observe(el) {
-    if (!el || unsupported) return;
+    if (!el || !supported) return;
 
     observerInstance = new IntersectionObserver(onChange, {
       rootMargin: offset,
@@ -33,11 +33,11 @@
   }
 
   onMount(() => {
-    unsupported =
-      !"IntersectionObserver" in window &&
-      !"IntersectionObserverEntry" in window &&
-      !"intersectionRatio" in window.IntersectionObserverEntry.prototype;
-    if (unsupported) inView = true;
+    supported =
+      "IntersectionObserver" in window &&
+      "IntersectionObserverEntry" in window &&
+      "intersectionRatio" in window.IntersectionObserverEntry.prototype;
+    if (!supported) inView = true;
     mounted = true;
   });
 
