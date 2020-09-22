@@ -42,7 +42,8 @@
   });
 
   onDestroy(() => {
-    element && observerInstance.unobserve(element);
+    if (!element || !supported) return;
+    observerInstance.unobserve(element);
   });
 
   $: mounted && observe(element);
